@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj": {}
+    "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj": {
+    "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj",
         "projectName": "Hack_KU_2023.Shared",
-        "projectPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj",
-        "packagesPath": "C:\\Users\\yaras\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj",
+        "packagesPath": "C:\\Users\\Adair Torres\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\yaras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adair Torres\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

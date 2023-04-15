@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack_KU_2023.Server", "Hack_KU_2023\Server\Hack_KU_2023.Server.csproj", "{094BCADE-F346-498A-936E-ED0BB6AE7D1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hack_KU_2023.Server", "Hack_KU_2023\Server\Hack_KU_2023.Server.csproj", "{094BCADE-F346-498A-936E-ED0BB6AE7D1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack_KU_2023.Client", "Hack_KU_2023\Client\Hack_KU_2023.Client.csproj", "{0FB7389C-BC71-492E-BAB9-EBE4FC92190D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hack_KU_2023.Client", "Hack_KU_2023\Client\Hack_KU_2023.Client.csproj", "{0FB7389C-BC71-492E-BAB9-EBE4FC92190D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack_KU_2023.Shared", "Hack_KU_2023\Shared\Hack_KU_2023.Shared.csproj", "{58F0EF03-B709-460A-80E0-BB6069200ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hack_KU_2023.Shared", "Hack_KU_2023\Shared\Hack_KU_2023.Shared.csproj", "{58F0EF03-B709-460A-80E0-BB6069200ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
