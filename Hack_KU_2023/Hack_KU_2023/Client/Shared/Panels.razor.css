@@ -1,0 +1,38 @@
+﻿.centerBox {
+    width: fit-content;
+    margin: auto;
+}
+
+.scrollButton, .panelContainer {
+    display: inline;
+}
+
+.panelContainer {
+    width: 4000px;
+}
+
+.panel {
+    display: inline-block;
+    height: 200px;
+    width: 300px;
+    margin: 5px 5px 5px 5px;
+    background-color: lightgray;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.content, h1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    height: 90%;
+}
+
+h1 {
+    height: 100%;
+    margin: 0px;
+}
