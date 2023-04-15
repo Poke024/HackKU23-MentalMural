@@ -11,15 +11,24 @@ main {
 }
 
 .muralSection {
+    position: relative;
     border-style: solid;
     border-width: 1px;
     border-color: lightblue;
     width: 100%;
-    height: 100%;
+    height: 80%;
+}
+
+.journalSection {
+    float: right;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 300px;
 }
 
 .customizationContainer {
-    width: 50px;
+    width: 100px;
     float: left;
 }
 
@@ -28,6 +37,7 @@ main {
 }
 
 .panelSection {
+    height: 20%;
     width: 100%;
     position: absolute;
     bottom: 0px;

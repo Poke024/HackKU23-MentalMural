@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentalMural.Server", "MentalMural\Server\MentalMural.Server.csproj", "{CF7F417B-242F-4490-B312-56ECA645B090}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MentalMural.Server", "MentalMural\Server\MentalMural.Server.csproj", "{CF7F417B-242F-4490-B312-56ECA645B090}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentalMural.Client", "MentalMural\Client\MentalMural.Client.csproj", "{17AE50F0-87C4-441A-BCE4-CADF67875900}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MentalMural.Client", "MentalMural\Client\MentalMural.Client.csproj", "{17AE50F0-87C4-441A-BCE4-CADF67875900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentalMural.Shared", "MentalMural\Shared\MentalMural.Shared.csproj", "{66F66B8D-53EE-45A2-B022-144FBE93803D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MentalMural.Shared", "MentalMural\Shared\MentalMural.Shared.csproj", "{66F66B8D-53EE-45A2-B022-144FBE93803D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
