@@ -1,0 +1,215 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Server\\Hack_KU_2023.Server.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Client\\Hack_KU_2023.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Client\\Hack_KU_2023.Client.csproj",
+        "projectName": "Hack_KU_2023.Client",
+        "projectPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Client\\Hack_KU_2023.Client.csproj",
+        "packagesPath": "C:\\Users\\yaras\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\yaras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj": {
+                "projectPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[6.0.15, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[6.0.16, 6.0.16]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Server\\Hack_KU_2023.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Server\\Hack_KU_2023.Server.csproj",
+        "projectName": "Hack_KU_2023.Server",
+        "projectPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Server\\Hack_KU_2023.Server.csproj",
+        "packagesPath": "C:\\Users\\yaras\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\yaras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Client\\Hack_KU_2023.Client.csproj": {
+                "projectPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Client\\Hack_KU_2023.Client.csproj"
+              },
+              "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj": {
+                "projectPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[6.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj",
+        "projectName": "Hack_KU_2023.Shared",
+        "projectPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\Hack_KU_2023.Shared.csproj",
+        "packagesPath": "C:\\Users\\yaras\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yaras\\Desktop\\Hack-KU-2023\\Hack_KU_2023\\Hack_KU_2023\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\yaras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
