@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Hack_KU_2023.Server.props" />
-</Project>
