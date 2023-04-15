@@ -12,6 +12,6 @@ For this app, we are using:
 ### The Team
 Our team members are:
 * Yara
-* Adiar
+* Adair
 * Izzy
 * Sydney
