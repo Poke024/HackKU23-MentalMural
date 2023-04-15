@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\Hack_KU_2023.Client.csproj" />
-    <ProjectReference Include="..\Shared\Hack_KU_2023.Shared.csproj" />
+    <ProjectReference Include="..\Client\MentalMural.Client.csproj" />
+    <ProjectReference Include="..\Shared\MentalMural.Shared.csproj" />
   </ItemGroup>
 
 
