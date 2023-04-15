@@ -1,0 +1,65 @@
+﻿<svg width=50 height=50 style='overflow: visible; margin: 5px;'>
+    <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
+          fill=@color stroke=@color stroke-width=2 transform='rotate(@angle 0 85) translate(@x_coord @y_coord)' />
+</svg>
+<svg width=50 height=50 style='overflow: visible; margin: 5px;'>
+    <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
+          fill=@color stroke=@color stroke-width=1 transform="rotate(@angle2 0 85) translate(@x_coord2 @y_coord2)" />
+</svg>
+<svg width=50 height=50 style='overflow: visible; margin: 5px;'>
+    <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
+          fill=@color stroke=@color stroke-width=1 transform='rotate(@angle3 0 85) translate(@x_coord3 @y_coord3)' />
+</svg>
+<svg width=50 height=50 style='overflow: visible; margin: 5px;'>
+    <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
+          fill=@color stroke=@color stroke-width=15 transform='rotate(@angle4 0 85) translate(@x_coord4 @y_coord4)' />
+</svg>
+<svg height="50" width="50" style='overflow: visible; margin: 5px;'>
+    <circle cx="50" cy="50" r="35" stroke=@color stroke-width="3" fill=@color 
+                transform='translate(-260 50)' />
+</svg>
+
+
+@code {
+    [Parameter]
+    public string color { get; set; } = "#000";
+
+    [Parameter]
+    public static int angle { get; set; } = 0;
+
+    public int angle2 = angle + 90;
+    public int angle3 = angle + 180;
+    public int angle4 = angle + 270;
+
+    [Parameter]
+    public static int x_coord { get; set; } = 50;
+
+    public int x_coord2 = x_coord - 25;
+    public int x_coord3 = x_coord + 30;
+    public int x_coord4 = x_coord - 75;
+
+    [Parameter]
+    public static int y_coord { get; set; } = 0;
+
+    public int y_coord2 = y_coord - 13;
+    public int y_coord3 = y_coord - 50;
+    public int y_coord4 = y_coord - 180;
+
+    //protected override void OnParameterSet()
+    //{
+        
+    //}
+
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    while (true) {
+    //        angle = angle + 1;
+    //        StateHasChanged();
+    //        angle2 = angle + 90;
+    //        angle3 = angle2 + 90;
+    //        angle4 = angle3 + 90;
+
+    //        await Task.Delay(1);
+    //    }
+    //}
+}
