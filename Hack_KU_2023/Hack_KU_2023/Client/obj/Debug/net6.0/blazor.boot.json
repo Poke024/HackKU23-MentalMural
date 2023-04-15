@@ -196,18 +196,18 @@
       "mscorlib.dll": "sha256-C3gpWQMELcHYfrHU\/1agQUvWTtSNs9Ul2suMxcKFnIc=",
       "netstandard.dll": "sha256-CgGkoZQx73t3qchcsu85kgBcgrjNEOiudArOwKNb18k=",
       "System.Private.CoreLib.dll": "sha256-6nUSjiT7okMlkN897OnDypwppYuK7JxTahOClXkAuwE=",
-      "Hack_KU_2023.Shared.dll": "sha256-qn+LdauvGM0fhKuYkC9IkxGlagqiKLRTRY9vwS+\/2eo=",
-      "Hack_KU_2023.Client.dll": "sha256-JpnYINKP4aNq1+dBuLIU21msN89OsleQC2TdwQMO80k="
+      "Hack_KU_2023.Shared.dll": "sha256-Li20cHEO+r4i\/2F\/l6qiYQBFSSzAorklh4rF8Qhx1oA=",
+      "Hack_KU_2023.Client.dll": "sha256-m5BdRtJi\/xsgPgW\/8Rsx0HzRof3L\/pI26sLRZ3gDFn4="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Hack_KU_2023.Shared.pdb": "sha256-I\/+9tYOU5taS9ymKehX7UCpdmxzVuQVusikYB6RrBTo=",
-      "Hack_KU_2023.Client.pdb": "sha256-cINiEwFbFrQZC\/nzxKCQned32EzQHO3jdeYcOvTe44c="
+      "Hack_KU_2023.Shared.pdb": "sha256-LNGU8Rb55HPJbnv7X3h0AFs0ynFKe4qN343toSgb2HU=",
+      "Hack_KU_2023.Client.pdb": "sha256-D\/DyXt+8nHJ781XqoSkL6WctsUgztblOwseL7BuBHxM="
     },
     "runtime": {
-      "dotnet.6.0.16.83psu2d7qk.js": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",
+      "dotnet.6.0.16.x2zer54swt.js": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",
       "dotnet.timezones.blat": "sha256-u8KbOjPcD2\/Pcbb0HaYyOuxEMMBYBUoicERKuSq9KMU=",
       "dotnet.wasm": "sha256-qD0yE2pPRrUZHsuAj5If3uIg1gptLud06+eBaGEftXk=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",

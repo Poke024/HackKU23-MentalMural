@@ -10,3 +10,15 @@ C:\Users\yaras\Desktop\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\n
 C:\Users\yaras\Desktop\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\refint\Hack_KU_2023.Shared.dll
 C:\Users\yaras\Desktop\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.pdb
 C:\Users\yaras\Desktop\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\ref\Hack_KU_2023.Shared.dll
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\bin\Debug\net6.0\Hack_KU_2023.Shared.deps.json
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\bin\Debug\net6.0\Hack_KU_2023.Shared.dll
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\bin\Debug\net6.0\Hack_KU_2023.Shared.pdb
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.csproj.AssemblyReference.cache
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.AssemblyInfoInputs.cache
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.AssemblyInfo.cs
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.dll
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\refint\Hack_KU_2023.Shared.dll
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\Hack_KU_2023.Shared.pdb
+C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Hack-KU-2023\Hack_KU_2023\Hack_KU_2023\Shared\obj\Debug\net6.0\ref\Hack_KU_2023.Shared.dll
