@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Hack_KU_2023.Client.props" />
+</Project>
