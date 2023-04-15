@@ -1,4 +1,4 @@
-using Hack_KU_2023.Client;
+using MentalMural.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
