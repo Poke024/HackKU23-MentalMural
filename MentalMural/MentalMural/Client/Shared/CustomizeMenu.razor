@@ -1,0 +1,25 @@
+﻿<button class="menuButton" @onclick="toggleMenu">Customize</button>
+<div class="dropdownContainer">
+    <button class="dropdownOption" style="@style">Background</button>
+    <button class="dropdownOption" style="@style">Weather</button>
+    <button class="dropdownOption" style="@style">Sound</button>
+    <button class="dropdownOption" style="@style">Time</button>
+</div>
+<p>Show status: @show</p>
+
+@code {
+    private bool show { get; set; } = false;
+    private string? style { get; set; }
+
+    void toggleMenu()
+    {
+        if (show == false)
+        {
+            style = "transform: translateX(0px);";
+        } else {
+            style = "transform: translateX(-100vw);";
+        }
+        show = !show;
+    }
+
+}

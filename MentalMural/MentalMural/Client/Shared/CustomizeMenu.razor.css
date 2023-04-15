@@ -1,11 +1,15 @@
-﻿.customizeMenu {
+﻿.menuButton {
 	margin: 5px 0px 5px 5px;
+	width: 100px;
+	border-radius: 25px;
 }
 
 .dropdownOption {
 	padding: 5px;
 	margin: 5px 0px 0px 5px;
-	display: inline-block;
+	display: inline;
 	background-color: #f9f3fe;
 	border-radius: 5px;
+	transform: translateX(-100vw);
 }
+
