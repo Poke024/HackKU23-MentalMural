@@ -1,4 +1,7 @@
-﻿<div class="journalDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+﻿@inject HttpClient Http
+@using MentalMural.Shared
+
+<div class="journalDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
     <div class="centerBox">
         <div class="read">
             <p>Placeholder Entry</p>
@@ -79,19 +82,40 @@
     [Parameter] public bool IsShown { get; set; }
     [Parameter] public bool FirstLoad { get; set; }
 
-    private void AddEntry()
+    private string? inputValue { get; set; }
+
+    private string? ObtainedValue { get; set; }
+
+    private string? entry { get; set; }
+
+    public async Task GetJournal()
     {
+        List<JournalEntryData>? entries = await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries");
+        entry = entries == null || entries.Count == 0 ? "No entries to display" : entries[0].Entry;
+    }
+
+    async void SaveEntry()
+    {
+        ObtainedValue = inputValue;
+        JournalEntryData newEntry = new JournalEntryData();
+        newEntry.Entry = ObtainedValue;
+        newEntry.Timestamp = DateTime.Now;
+        newEntry.Id = (await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries")).Count + 1;
+        await Http.PostAsJsonAsync<JournalEntryData>("JournalEntry/AddEntry", newEntry);
 
     }
 
-    private void NextEntry()
+    async void ClearJournal()
     {
+        int len = (await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries")).Count;
 
-    }
 
-    private void DeleteJournal()
-    {
-        
+        while (len > 0)
+        {
+            await Http.DeleteAsync("JournalEntry/DeleteEntry/" + len.ToString());
+            len--;
+        }
+
     }
 }
 
