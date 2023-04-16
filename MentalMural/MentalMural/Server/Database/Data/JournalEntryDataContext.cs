@@ -16,7 +16,12 @@ namespace MentalMural.Server.Database.Data
             optionsBuilder.UseSqlite(Configuration.GetConnectionString("JournalEntryDB"));
         }
 
+
+        // when adding any new set, perform the following commands to update the database and add a table
+        // dotnet ef migrations add [insert-migration-name]
+        // dotnet ef database update
         public DbSet<JournalEntryData> JournalEntries { get; set; }
+        public DbSet<UserData> UserInfo { get; set; }
     }
 
 }
