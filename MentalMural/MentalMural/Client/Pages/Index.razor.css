@@ -9,17 +9,18 @@
 
 .customizationContainer, .journalContainer, .loginLogoutContainer {
     display: inline;
-    width: 100px;
     position: relative;
     z-index: 1;
 }
 
 .customizationContainer, .journalContainer {
     float: left;
+    width: 100px;
 }
 
 .loginLogoutContainer {
     float: right;
+    width: 30vw;
 }
 
 .muralSection {
