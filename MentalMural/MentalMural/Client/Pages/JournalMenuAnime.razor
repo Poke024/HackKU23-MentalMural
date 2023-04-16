@@ -1,7 +1,7 @@
 ﻿@inject HttpClient Http
 @using MentalMural.Shared
 
-<div class="journalDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+<div class="journalDropdown @(IsShown?"slideInTopJournal":(!FirstLoad?"slideOutTopJournal":"hideTopJournal"))">
     <div class="centerBox">
         <div class="half" id="left">
             <div class="centerBox">
@@ -18,7 +18,7 @@
             <div class="centerBox">
                 <h6>New Entry</h6>
                 <textarea class="newEntry" @bind="inputValue" />
-                <label>Mood Rating (1 - Bad, 10 - Good):</label><input type="number" min="1" max="10"/>
+                <label>Mood Rating (1 - Bad, 10 - Good):</label><input type="number" min="1" max="10" @bind="moodRating"/>
                 <button @onclick="SaveEntry">Save Entry</button>
             </div>
         </div>
@@ -36,6 +36,7 @@
         margin-right: 0px;
         border-radius: 10px;
         animation: hideTop 1s forwards;
+        visibility: hidden;
     }
 
     .centerBox {
@@ -81,32 +82,36 @@
         margin: auto;
     }
 
-    .slideInTop {
-        animation: fromTop @AnimationTime forwards;
+    .slideInTopJournal {
+        animation: fromTopJournal @AnimationTime forwards;
     }
 
-    .slideOutTop {
-        animation: toTop @AnimationTime forwards;
+    .slideOutTopJournal {
+        animation: toTopJournal @AnimationTime forwards;
     }
 
-    @@keyframes toTop {
+    @@keyframes toTopJournal {
         0% {
+            visibility: visible;
             opacity: 1;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
     }
 
-    @@keyframes fromTop {
+    @@keyframes fromTopJournal {
         0% {
+            visibility: hidden;
             transform: translateY(-10vh);
             opacity: 0;
         }
 
-        50% {
+        100% {
+            visibility: visible;
             transform: translateY(0px);
             opacity: 1
         }
@@ -114,11 +119,13 @@
 
     @@keyframes hideTop {
         0% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
@@ -135,6 +142,7 @@
     private int curIndex = 0;
 
     private string? entry { get; set; }
+    private int? moodRating { get; set; }
 
     private List<JournalEntryData>? entries;
 
@@ -151,6 +159,7 @@
         newEntry.Entry = inputValue;
         newEntry.Timestamp = DateTime.Now;
         newEntry.Id = (await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries")).Count + 1;
+        newEntry.MoodRating = moodRating == null ? 5 : (int)moodRating; // 
         await Http.PostAsJsonAsync<JournalEntryData>("JournalEntry/AddEntry", newEntry);
 
     }

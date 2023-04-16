@@ -27,10 +27,30 @@ namespace MentalMural.Server.Database
             return journalEntryData;
         }
 
+        public async Task<UserData> CreateNewUserAsync(UserData userData)
+        {
+            try
+            {
+                _journalEntryDataContext.UserInfo.Add(userData);
+                await _journalEntryDataContext.SaveChangesAsync();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return userData;
+        }
+
         // READ
         public async Task<List<JournalEntryData>> ReadJournalEntries()
         {
             return await _journalEntryDataContext.JournalEntries.ToListAsync();
+        }
+
+        public async Task<List<UserData>> ReadUserData()
+        {
+            return await _journalEntryDataContext.UserInfo.ToListAsync();
         }
 
         // UPDATE

@@ -6,6 +6,11 @@
     z-index: 5;
 }
 
+.menuButton img {
+    height: 35px;
+    width: 35px;
+}
+
 .journalMenu {
     margin: 5px 0px 5px 5px;
 }

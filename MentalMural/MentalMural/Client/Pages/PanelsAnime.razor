@@ -1,0 +1,98 @@
+﻿<div class="panelPopup @(IsShown?"slideInTopPanel":(!FirstLoad?"slideOutTopPanel":"hideTopPanel"))">
+    <ul>
+        <li>Sample Placeholder</li>
+        <li>More Info Coming Soon!</li>
+    </ul>
+</div>
+
+<style>
+    .panelPopup {
+        z-index: 6;
+        background-color: white;
+        border-radius: 15px;
+        position: relative;
+        width: 18vw;
+        height: 24vw;
+        animation: hideBottom 1s forwards;
+        bottom: 16vh;
+        display: inline-block;
+        margin: 5px 5px 5px 5px;
+        visibility: hidden;
+    }
+
+    .panelPopup ul {
+        width: auto;
+        visibility: inherit;
+    }
+    
+    .centerBox {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .slideInTopPanel {
+        animation: fromTopPanel @AnimationTime forwards;
+    }
+
+    .slideOutTopPanel {
+        animation: toTopPanel @AnimationTime forwards;
+    }
+
+    @@keyframes toTopPanel {
+        0% {
+            visibility: visible;
+            transform: translateY(16vh);
+            opacity: 1;
+        }
+
+        100% {
+            visibility: hidden;
+            transform: translateY(0vh);
+            opacity: 0;
+        }
+    }
+
+    @@keyframes fromTopPanel {
+        0% {
+            visibility: hidden;
+            transform: translateY(0vh);
+            opacity: 0;
+        }
+
+        100% {
+            visibility: visible;
+            transform: translateY(16vh);
+            opacity: 1
+        }
+    }
+
+    @@keyframes hideBottomPanel {
+        0% {
+            visibility: hidden;
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+
+        100% {
+            visibility: hidden;
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }
+</style>
+
+@code {
+    [Parameter] public string AnimationTime { get; set; }
+    [Parameter] public bool IsShown { get; set; }
+    [Parameter] public bool FirstLoad { get; set; }
+
+    private void SignUp()
+    {
+
+    }
+
+    private void LogIn()
+    {
+        
+    }
+}

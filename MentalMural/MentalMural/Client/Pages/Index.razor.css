@@ -1,5 +1,5 @@
 ﻿main {
-    height: 100%;
+    max-height: 100vh;
     background-image: linear-gradient(lightblue, white);
 }
 
