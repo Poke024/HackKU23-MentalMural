@@ -15,7 +15,7 @@
         <div class="newEntry">
             <p>New Entry</p>
             <input type="text" />
-            <input type="number" />
+            <input type="number" @bind="moodRating"/>
             <button>Save Entry</button>
         </div>
     </div>
@@ -87,6 +87,7 @@
     private string? ObtainedValue { get; set; }
 
     private string? entry { get; set; }
+    private int? moodRating { get; set; }
 
     public async Task GetJournal()
     {
@@ -101,6 +102,7 @@
         newEntry.Entry = ObtainedValue;
         newEntry.Timestamp = DateTime.Now;
         newEntry.Id = (await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries")).Count + 1;
+        newEntry.MoodRating = moodRating == null ? 5 : (int)moodRating; // 
         await Http.PostAsJsonAsync<JournalEntryData>("JournalEntry/AddEntry", newEntry);
 
     }
