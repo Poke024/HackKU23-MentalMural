@@ -1,23 +1,37 @@
-﻿<div class="dropdownContainer">
-    <button class="journalOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">View Journal</button>
-    <button class="journalOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Add Entry</button>
-    <button id="clear" class="journalOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Clear Journal</button>
+﻿<div class="journalDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+    <div class="centerBox">
+        <div class="read">
+            <p>Placeholder Entry</p>
+            <div class="changePage">
+                <button>&lt;</button><button>&gt;</button>
+            </div>
+            <div class="extra">
+                <button>X</button>
+            </div>
+        </div>
+        <div class="newEntry">
+            <p>New Entry</p>
+            <input type="text" />
+            <input type="number" />
+            <button>Save Entry</button>
+        </div>
+    </div>
 </div>
 
 <style>
-    .journalOption {
-        z-index: 1;
+    .journalDropdown {
+        margin-top: 10px;
+        float: right;
+        background-color: white;
         position: relative;
-        padding: 5px;
-        margin: auto;
-        display: inline;
-        background-color: #f9f3fe;
-        border-radius: 5px;
-        animation: hideTop 1s forwards;
+        width: 80%;
+        height: auto;
+        margin-right: 0px;
+        border-radius: 10px;
     }
 
-    .slideInTop {
-        animation: fromTop @AnimationTime forwards;
+    #clearJournal {
+        color: red;
     }
 
     .slideOutTop {
@@ -64,4 +78,20 @@
     [Parameter] public string AnimationTime { get; set; }
     [Parameter] public bool IsShown { get; set; }
     [Parameter] public bool FirstLoad { get; set; }
+
+    private void AddEntry()
+    {
+
+    }
+
+    private void NextEntry()
+    {
+
+    }
+
+    private void DeleteJournal()
+    {
+        
+    }
 }
+
