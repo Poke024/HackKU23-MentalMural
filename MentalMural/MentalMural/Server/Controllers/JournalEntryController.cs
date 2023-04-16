@@ -31,8 +31,8 @@ namespace MentalMural.Server.Controllers
         }
 
         [HttpDelete]
-		// how do i route a uri with params or otherwise how do i avoid using this
-		public async Task Delete([FromQuery]int id)
+		[Route("DeleteEntry/{id}")]
+		public async Task Delete(int id)
         {
 			JournalEntryData journalEntryData = (await _crud.ReadJournalEntries()).FirstOrDefault(p => p.Id == id);
 			await _crud.DeleteJournalEntry(journalEntryData);

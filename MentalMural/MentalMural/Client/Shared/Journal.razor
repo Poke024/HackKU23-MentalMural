@@ -39,7 +39,6 @@
 
     }
 
-    //this isn't working but we'll leave it here for now to come back to it
     async void ClearJournal()
     {
         int len = (await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries")).Count;
@@ -47,7 +46,8 @@
 
         while (len > 0)
         {
-            await Http.DeleteAsync("JournalEntry/GetEntries/"+len.ToString());
+            await Http.DeleteAsync("JournalEntry/DeleteEntry/"+len.ToString());
+            len--;
         }
 
     }
