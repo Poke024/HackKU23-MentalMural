@@ -10,12 +10,19 @@
 .customizationContainer, .journalContainer, .loginLogoutContainer {
     display: inline;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
 .customizationContainer, .journalContainer {
     float: left;
+}
+
+.customizationContainer {
     width: 100px;
+}
+
+.journalContainer {
+    width: 40vw;
 }
 
 .loginLogoutContainer {
