@@ -27,7 +27,14 @@ namespace MentalMural.Server.Controllers
 			return await _crud.ReadJournalEntries();
         }
 
-        [HttpDelete]
+		[HttpGet]
+		[Route("GetUserData")]
+		public async Task<List<UserData>> GetUser()
+		{
+			return await _crud.ReadUserData();
+		}
+
+		[HttpDelete]
 		[Route("DeleteEntry/{id}")]
 		public async Task Delete(int id)
         {
@@ -42,7 +49,14 @@ namespace MentalMural.Server.Controllers
 			await _crud.CreateNewJournalEntryAsync(journalEntryData);
         }
 
-        [HttpPatch]
+		[HttpPost]
+		[Route("AddUser")]
+		public async Task Add(UserData userData)
+		{
+			await _crud.CreateNewUserAsync(userData);
+		}
+
+		[HttpPatch]
 		public async Task Update(JournalEntryData journalEntryData)
         {
 			await _crud.UpdateJournalEntry(journalEntryData);
