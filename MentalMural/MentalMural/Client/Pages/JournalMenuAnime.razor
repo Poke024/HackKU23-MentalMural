@@ -1,0 +1,67 @@
+﻿<div class="dropdownContainer">
+    <button class="journalOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">View Journal</button>
+    <button class="journalOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Add Entry</button>
+    <button id="clear" class="journalOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Clear Journal</button>
+</div>
+
+<style>
+    .journalOption {
+        z-index: 1;
+        position: relative;
+        padding: 5px;
+        margin: auto;
+        display: inline;
+        background-color: #f9f3fe;
+        border-radius: 5px;
+        animation: hideTop 1s forwards;
+    }
+
+    .slideInTop {
+        animation: fromTop @AnimationTime forwards;
+    }
+
+    .slideOutTop {
+        animation: toTop @AnimationTime forwards;
+    }
+
+    @@keyframes toTop {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-20vh);
+            opacity: 0;
+        }
+    }
+
+    @@keyframes fromTop {
+        0% {
+            transform: translateY(-10vh);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translateY(0px);
+            opacity: 1
+        }
+    }
+
+    @@keyframes hideTop {
+        0% {
+            transform: translateY(-20vh);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(-20vh);
+            opacity: 0;
+        }
+    }
+</style>
+
+@code {
+    [Parameter] public string AnimationTime { get; set; }
+    [Parameter] public bool IsShown { get; set; }
+    [Parameter] public bool FirstLoad { get; set; }
+}

@@ -1,46 +1,10 @@
 body {
-    height: 100vh;
 }
+
 .page {
     height: 100vh;
+    max-width: 100vw;
 }
 
-main {
-    height: 100%;
-    background-image: linear-gradient(lightblue, white);
-}
-
-.muralSection {
-    position: relative;
-    border-style: solid;
-    border-width: 1px;
-    border-color: lightblue;
-    width: 100%;
-    height: 80%;
-}
-
-.journalSection {
-    float: right;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 300px;
-}
-
-.customizationContainer {
-    width: 100px;
-    float: left;
-}
-
-.logoutContainer {
-    float: right;
-}
-
-.panelSection {
-    height: 20%;
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-}
 
 

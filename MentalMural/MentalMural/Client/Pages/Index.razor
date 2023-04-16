@@ -1,9 +1,21 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<main>
+    <div class="controlSection">
+        <div class="customizationContainer">
+            <CustomizeMenu />
+        </div>
+        <div class="journalContainer">
+            <JournalMenu />
+        </div>
+        <div class="loginLogoutContainer">
+            <LoginMenu />
+        </div>
+    </div>
+    <div class="muralSection">
+        <Mural />
+    </div>
+    <div class="panelSection">
+        <Panels />
+    </div>
+</main>
