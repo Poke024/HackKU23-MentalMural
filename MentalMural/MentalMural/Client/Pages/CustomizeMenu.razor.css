@@ -1,0 +1,9 @@
+﻿.menuButton {
+	margin: 15px;
+	height: 50px;
+	width: 50px;
+	border-radius: 25px;
+	z-index: 2;
+}
+
+

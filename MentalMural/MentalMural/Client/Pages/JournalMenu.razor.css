@@ -1,0 +1,16 @@
+﻿.menuButton {
+    margin: 15px;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    z-index: 2;
+}
+
+.journalMenu {
+    margin: 5px 0px 5px 5px;
+}
+
+.journalPage, .scrollButton {
+    display: inline;
+}
+

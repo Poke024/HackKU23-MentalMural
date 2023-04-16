@@ -1,0 +1,122 @@
+﻿<div class="loginDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+    <div class="centerBox">
+        <div class="row">
+            <label>Username:</label><input type="text" />
+        </div>
+        <div class="row">
+            <label>Password:</label><input type="password" />
+        </div>
+        <div class="row">
+            <div class="half">
+                <button>Sign Up</button>
+            </div>
+            <div class="half">
+                <button>Log in</button>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</div>
+
+<style>
+    .loginDropdown {
+        margin-top: 10px;
+        float: right;
+        background-color: white;
+        position: relative;
+        width: 20vw;
+        height: auto;
+        margin-right: 0px;
+        border-radius: 10px;
+    }
+    
+    .centerBox {
+        margin: auto;
+    }
+
+    .row {
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .row label {
+        width: 30%;
+    }
+
+    .row input {
+        width: 60%;
+        margin-right: 15px;
+    }
+
+    .row .half {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+    }
+
+    .half button {
+    }
+
+    .slideInTop {
+        animation: fromTop @AnimationTime forwards;
+    }
+
+    .slideOutTop {
+        animation: toTop @AnimationTime forwards;
+    }
+
+    @@keyframes toTop {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-20vh);
+            opacity: 0;
+        }
+    }
+
+    @@keyframes fromTop {
+        0% {
+            transform: translateY(-10vh);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translateY(0px);
+            opacity: 1
+        }
+    }
+
+    @@keyframes hideTop {
+        0% {
+            transform: translateY(-20vh);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(-20vh);
+            opacity: 0;
+        }
+    }
+</style>
+
+@code {
+    [Parameter] public string AnimationTime { get; set; }
+    [Parameter] public bool IsShown { get; set; }
+    [Parameter] public bool FirstLoad { get; set; }
+
+    private void SignUp()
+    {
+
+    }
+
+    private void LogIn()
+    {
+        
+    }
+}

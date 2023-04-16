@@ -1,0 +1,39 @@
+﻿main {
+    height: 100%;
+    background-image: linear-gradient(lightblue, white);
+}
+
+.controlSection {
+    width: 100vw;
+}
+
+.customizationContainer, .journalContainer, .loginLogoutContainer {
+    display: inline;
+    position: relative;
+    z-index: 1;
+}
+
+.customizationContainer, .journalContainer {
+    float: left;
+    width: 100px;
+}
+
+.loginLogoutContainer {
+    float: right;
+    width: 30vw;
+}
+
+.muralSection {
+    z-index: 0;
+    position: relative;
+    width: 100vw;
+    height: 75vh;
+}
+
+.panelSection {
+    z-index: 1;
+    width: 100vw;
+    position: absolute;
+    bottom: 0px;
+    padding-bottom: 10px;
+}
