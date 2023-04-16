@@ -1,45 +1,48 @@
 ﻿<svg width=50 height=50 style='overflow: visible; margin: 5px;'>
     <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
-          fill=@color stroke=@color stroke-width=1 transform='rotate(@angle 0 85) translate(@x_coord @y_coord)' />
+          fill=@petal_color stroke=@petal_color stroke-width=1 transform='rotate(@angle 0 85) translate(@x_coord @y_coord)' />
 </svg>
 <svg width=50 height=50 style='overflow: visible; margin: 5px;'>
     <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
-          fill=@color stroke=@color stroke-width=1 transform="rotate(@angle2 0 85) translate(@x_coord2 @y_coord2)" />
+          fill=@petal_color stroke=@petal_color stroke-width=1 transform="rotate(@angle2 0 85) translate(@x_coord2 @y_coord2)" />
 </svg>
 <svg width=50 height=50 style='overflow: visible; margin: 5px;'>
     <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
-          fill=@color stroke=@color stroke-width=1 transform='rotate(@angle3 0 85) translate(@x_coord3 @y_coord3)' />
+          fill=@petal_color stroke=@petal_color stroke-width=1 transform='rotate(@angle3 0 85) translate(@x_coord3 @y_coord3)' />
 </svg>
 <svg width=50 height=50 style='overflow: visible; margin: 5px;'>
     <path d='M0,0 C50,40 50,70 20,100 L0,85 L-20,100 C-50,70 -50,40 0,0'
-          fill=@color stroke=@color stroke-width=1 transform='rotate(@angle4 0 85) translate(@x_coord4 @y_coord4)' />
+          fill=@petal_color stroke=@petal_color stroke-width=1 transform='rotate(@angle4 0 85) translate(@x_coord4 @y_coord4)' />
 </svg>
 <svg height="50" width="50" style='overflow: visible; margin: 5px;'>
-    <circle cx="50" cy="50" r="35" stroke="#feca57" stroke-width="3" fill="#feca57"
+    <circle cx="50" cy="50" r="35" stroke=@center_color stroke-width="3" fill=@center_color
             transform='translate(-260 55)' />
 </svg>
 
 
 @code {
     [Parameter]
-    public string color { get; set; } = "#fff";
+    public string petal_color { get; set; } = "#fff";
 
     [Parameter]
-    public int angle { get; set; } = 0;
+    public string center_color { get; set; } = "#feca57";
+
+    [Parameter]
+    public static int angle { get; set; } = 0;
 
     public int angle2;
     public int angle3;
     public int angle4;
 
     [Parameter]
-    public int x_coord { get; set; } = 50;
+    public static int x_coord { get; set; } = 50;
 
     public int x_coord2;
     public int x_coord3;
     public int x_coord4;
 
     [Parameter]
-    public int y_coord { get; set; } = 0;
+    public static int y_coord { get; set; } = 0;
 
     public int y_coord2;
     public int y_coord3;

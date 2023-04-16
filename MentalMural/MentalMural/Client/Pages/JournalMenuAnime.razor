@@ -1,22 +1,26 @@
 ﻿@inject HttpClient Http
 @using MentalMural.Shared
 
-<div class="journalDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+<div class="journalDropdown @(IsShown?"slideInTopJournal":(!FirstLoad?"slideOutTopJournal":"hideTopJournal"))">
     <div class="centerBox">
-        <div class="read">
-            <p>Placeholder Entry</p>
-            <div class="changePage">
-                <button>&lt;</button><button>&gt;</button>
-            </div>
-            <div class="extra">
-                <button>X</button>
+        <div class="half" id="left">
+            <div class="centerBox">
+                <div class="changePage">
+                    <button @onclick="PrevEntry">&lt; Prev</button><button class="openJournal" @onclick="GetJournal">Open Journal</button><button @onclick="NextEntry">Next &gt;</button>
+                </div>
+                <p>@entry</p>
+                <div class="extra">
+                    <button id="clearJournal" @onclick="ClearJournal">Clear Journal</button>
+                </div>
             </div>
         </div>
-        <div class="newEntry">
-            <p>New Entry</p>
-            <input type="text" />
-            <input type="number" @bind="moodRating"/>
-            <button>Save Entry</button>
+        <div class="half" id="right">
+            <div class="centerBox">
+                <h6>New Entry</h6>
+                <textarea class="newEntry" @bind="inputValue" />
+                <label>Mood Rating (1 - Bad, 10 - Good):</label><input type="number" min="1" max="10" @bind="moodRating"/>
+                <button @onclick="SaveEntry">Save Entry</button>
+            </div>
         </div>
     </div>
 </div>
@@ -28,37 +32,86 @@
         background-color: white;
         position: relative;
         width: 80%;
-        height: auto;
+        height: 100%;
         margin-right: 0px;
         border-radius: 10px;
+        animation: hideTop 1s forwards;
+        visibility: hidden;
+    }
+
+    .centerBox {
+        width: fit-content;
+        height: 100%;
+        margin: auto;
+    }
+
+    .half {
+        display: inline;
+        width: 50%;
+        height: 100%;
+    }
+
+    #left {
+        float: left;
+    }
+
+    #left p {
+        height: 80%;
+        width: 80%;
+    }
+
+    .openJournal {
+        margin: 0px 5px 0px 5px;
+    }
+    .changePage {
+        margin-top: 10px;
     }
 
     #clearJournal {
         color: red;
     }
 
-    .slideOutTop {
-        animation: toTop @AnimationTime forwards;
+    #right {
+        float: right;
     }
 
-    @@keyframes toTop {
+    .newEntry {
+        width: 90%;
+        resize: vertical;
+        max-height: 50vh;
+        margin: auto;
+    }
+
+    .slideInTopJournal {
+        animation: fromTopJournal @AnimationTime forwards;
+    }
+
+    .slideOutTopJournal {
+        animation: toTopJournal @AnimationTime forwards;
+    }
+
+    @@keyframes toTopJournal {
         0% {
+            visibility: visible;
             opacity: 1;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
     }
 
-    @@keyframes fromTop {
+    @@keyframes fromTopJournal {
         0% {
+            visibility: hidden;
             transform: translateY(-10vh);
             opacity: 0;
         }
 
-        50% {
+        100% {
+            visibility: visible;
             transform: translateY(0px);
             opacity: 1
         }
@@ -66,11 +119,13 @@
 
     @@keyframes hideTop {
         0% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
@@ -84,22 +139,24 @@
 
     private string? inputValue { get; set; }
 
-    private string? ObtainedValue { get; set; }
+    private int curIndex = 0;
 
     private string? entry { get; set; }
     private int? moodRating { get; set; }
 
+    private List<JournalEntryData>? entries;
+
     public async Task GetJournal()
     {
-        List<JournalEntryData>? entries = await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries");
-        entry = entries == null || entries.Count == 0 ? "No entries to display" : entries[0].Entry;
+        curIndex = 0;
+        entries = await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries");
+        entry = entries == null || entries.Count == 0 ? "No entries to display." : entries[0].Entry;
     }
 
     async void SaveEntry()
     {
-        ObtainedValue = inputValue;
         JournalEntryData newEntry = new JournalEntryData();
-        newEntry.Entry = ObtainedValue;
+        newEntry.Entry = inputValue;
         newEntry.Timestamp = DateTime.Now;
         newEntry.Id = (await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries")).Count + 1;
         newEntry.MoodRating = moodRating == null ? 5 : (int)moodRating; // 
@@ -118,6 +175,46 @@
             len--;
         }
 
+    }
+
+    void NextEntry()
+    {
+        curIndex++;
+        if (entries.Count != 0)
+        {
+            if (curIndex < (entries.Count - 1))
+            {
+                entry = entries[curIndex].Entry;
+            } else
+            {
+                curIndex = entries.Count;
+                entry = "END";
+            }
+        } else
+        {
+            entry = "No entries to display.";
+        }
+    }
+
+    void PrevEntry()
+    {
+        curIndex--;
+        if (entries.Count != 0)
+        {
+            if (curIndex > 0)
+            {
+                entry = entries[curIndex].Entry;
+            }
+            else
+            {
+                curIndex = -1;
+                entry = "BEGIN";
+            }
+        }
+        else
+        {
+            entry = "No entries to display.";
+        }
     }
 }
 
