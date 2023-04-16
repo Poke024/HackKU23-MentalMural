@@ -159,7 +159,7 @@
         newEntry.Entry = inputValue;
         newEntry.Timestamp = DateTime.Now;
         newEntry.Id = (await Http.GetFromJsonAsync<List<JournalEntryData>>("JournalEntry/GetEntries")).Count + 1;
-        newEntry.MoodRating = moodRating == null ? 5 : (int)moodRating; // 
+        // newEntry.MoodRating = moodRating == null ? 5 : (int)moodRating;
         await Http.PostAsJsonAsync<JournalEntryData>("JournalEntry/AddEntry", newEntry);
 
     }
