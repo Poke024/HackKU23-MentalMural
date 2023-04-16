@@ -6,3 +6,8 @@
 	z-index: 2;
 	float: right;
 }
+
+.loginButton img {
+	height: 25px;
+	width: 25px;
+}

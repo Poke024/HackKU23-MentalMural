@@ -1,7 +1,7 @@
 ﻿@inject HttpClient Http
 @using MentalMural.Shared
 
-<div class="journalDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+<div class="journalDropdown @(IsShown?"slideInTopJournal":(!FirstLoad?"slideOutTopJournal":"hideTopJournal"))">
     <div class="centerBox">
         <div class="half" id="left">
             <div class="centerBox">
@@ -36,6 +36,7 @@
         margin-right: 0px;
         border-radius: 10px;
         animation: hideTop 1s forwards;
+        visibility: hidden;
     }
 
     .centerBox {
@@ -81,32 +82,36 @@
         margin: auto;
     }
 
-    .slideInTop {
-        animation: fromTop @AnimationTime forwards;
+    .slideInTopJournal {
+        animation: fromTopJournal @AnimationTime forwards;
     }
 
-    .slideOutTop {
-        animation: toTop @AnimationTime forwards;
+    .slideOutTopJournal {
+        animation: toTopJournal @AnimationTime forwards;
     }
 
-    @@keyframes toTop {
+    @@keyframes toTopJournal {
         0% {
+            visibility: visible;
             opacity: 1;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
     }
 
-    @@keyframes fromTop {
+    @@keyframes fromTopJournal {
         0% {
+            visibility: hidden;
             transform: translateY(-10vh);
             opacity: 0;
         }
 
-        50% {
+        100% {
+            visibility: visible;
             transform: translateY(0px);
             opacity: 1
         }
@@ -114,11 +119,13 @@
 
     @@keyframes hideTop {
         0% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }

@@ -1,28 +1,73 @@
 ﻿<div class="centerBox">
-    <div class="panelContainer">
-        <button class="panel">
-            <div class="content">
-                <p>Setting<br />Goals</p>
-            </div>
-        </button>
-        <button class="panel">
-            <div class="content">
-                <p>Developing<br />Habits</p>
-            </div>
-        </button>
-        <button class="panel">
-            <div class="content">
-                <p>Writing<br />Prompts</p>
-            </div>
-        </button>
-        <button class="panel">
-            <div class="content">
-                <p>Support<br />Resources</p>
-            </div>
-        </button>
-    </div>
+        <div class="panelContainer">
+        <PanelsAnime AnimationTime="1.5s" IsShown=@isShown[0] FirstLoad=@firstLoad[0] />
+        <PanelsAnime AnimationTime="1.5s" IsShown=@isShown[1] FirstLoad=@firstLoad[1] />
+        <PanelsAnime AnimationTime="1.5s" IsShown=@isShown[2] FirstLoad=@firstLoad[2] />
+        <PanelsAnime AnimationTime="1.5s" IsShown=@isShown[3] FirstLoad=@firstLoad[3] />
+        </div>
+        <div class="panelContainer">
+            <button @onclick="OnButtonClickOne" class="panel">
+                <div class="content">
+                    <p>Setting<br />Goals</p>
+                </div>
+            </button>
+            <button @onclick="OnButtonClickTwo" class="panel">
+                <div class="content">
+                    <p>Developing<br />Habits</p>
+                </div>
+            </button>
+            <button @onclick="OnButtonClickThree" class="panel">
+                <div class="content">
+                    <p>Writing<br />Prompts</p>
+                </div>
+            </button>
+            <button @onclick="OnButtonClickFour" class="panel">
+                <div class="content">
+                    <p>Support<br />Resources</p>
+                </div>
+            </button>
+        </div>
 </div>
-
 @code {
+    bool[] firstLoad = { true, true, true, true };
+    bool[] isShown = { false, false, false, false };
+
+    private void OnButtonClickOne()
+    {
+        isShown[0] = !(isShown[0]);
+        if (firstLoad[0] == true)
+        {
+            firstLoad[0] = false;
+        }
+    }
+    private void OnButtonClickTwo()
+    {
+        isShown[1] = !(isShown[1]);
+        if (firstLoad[1] == true)
+        {
+            firstLoad[1] = false;
+        }
+    }
+    private void OnButtonClickThree()
+    {
+        isShown[2] = !(isShown[2]);
+        if (firstLoad[2] == true)
+        {
+            firstLoad[2] = false;
+        }
+    }
+    private void OnButtonClickFour()
+    {
+        isShown[3] = !(isShown[3]);
+        if (firstLoad[3] == true)
+        {
+            firstLoad[3] = false;
+        }
+    }
+}
+@code {
+    [Parameter] public string AnimationTime { get; set; }
+    [Parameter] public bool IsShown { get; set; }
+    [Parameter] public bool FirstLoad { get; set; }
 
 }

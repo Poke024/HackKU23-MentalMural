@@ -1,4 +1,4 @@
-﻿<div class="loginDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+﻿<div class="loginDropdown @(IsShown?"slideInTopLogin":(!FirstLoad?"slideOutTopLogin":"hideTopLogin"))">
     <div class="centerBox">
         <div class="row">
             <label>Username:</label><input type="text" />
@@ -30,6 +30,7 @@
         margin-right: 0px;
         border-radius: 10px;
         animation: hideTop 1s forwards;
+        visibility: hidden;
     }
     
     .centerBox {
@@ -62,32 +63,36 @@
     .half button {
     }
 
-    .slideInTop {
-        animation: fromTop @AnimationTime forwards;
+    .slideInTopLogin {
+        animation: fromTopLogin @AnimationTime forwards;
     }
 
-    .slideOutTop {
-        animation: toTop @AnimationTime forwards;
+    .slideOutTopLogin {
+        animation: toTopLogin @AnimationTime forwards;
     }
 
-    @@keyframes toTop {
+    @@keyframes toTopLogin {
         0% {
+            visibility: visible;
             opacity: 1;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
     }
 
-    @@keyframes fromTop {
+    @@keyframes fromTopLogin {
         0% {
+            visibility: hidden;
             transform: translateY(-10vh);
             opacity: 0;
         }
 
-        50% {
+        100% {
+            visibility: visible;
             transform: translateY(0px);
             opacity: 1
         }
@@ -95,11 +100,13 @@
 
     @@keyframes hideTop {
         0% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
 
         100% {
+            visibility: hidden;
             transform: translateY(-20vh);
             opacity: 0;
         }
