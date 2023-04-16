@@ -1,26 +1,64 @@
 ﻿<div class="loginDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
-    <input type="text" />
-    <input type="password" />
-    <button>Sign Up</button>
+    <div class="centerBox">
+        <div class="row">
+            <label>Username:</label><input type="text" />
+        </div>
+        <div class="row">
+            <label>Password:</label><input type="password" />
+        </div>
+        <div class="row">
+            <div class="half">
+                <button>Sign Up</button>
+            </div>
+            <div class="half">
+                <button>Log in</button>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+    </div>
 </div>
 
 <style>
     .loginDropdown {
-        background-color: #f9f3fe;
+        margin-top: 10px;
+        float: right;
+        background-color: white;
         position: relative;
         width: 20vw;
-        height: 20vh;
+        height: auto;
+        margin-right: 0px;
+        border-radius: 10px;
+    }
+    
+    .centerBox {
+        margin: auto;
     }
 
-    .customizeOption {
-        z-index: 1;
-        position: relative;
-        padding: 5px;
-        margin: auto;
-        display: inline;
-        background-color: #f9f3fe;
-        border-radius: 5px;
-        animation: hideTop 1s forwards;
+    .row {
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .row label {
+        width: 30%;
+    }
+
+    .row input {
+        width: 60%;
+        margin-right: 15px;
+    }
+
+    .row .half {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+    }
+
+    .half button {
     }
 
     .slideInTop {
@@ -71,4 +109,14 @@
     [Parameter] public string AnimationTime { get; set; }
     [Parameter] public bool IsShown { get; set; }
     [Parameter] public bool FirstLoad { get; set; }
+
+    private void SignUp()
+    {
+
+    }
+
+    private void LogIn()
+    {
+        
+    }
 }
