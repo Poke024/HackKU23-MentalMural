@@ -4,7 +4,5 @@ body {
 .page {
     height: 100vh;
     max-width: 100vw;
+    background-image: radial-gradient(circle at top right, ghostwhite, #1dd1a1);
 }
-
-
-
