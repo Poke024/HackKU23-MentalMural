@@ -1,14 +1,13 @@
 ﻿.centerBox {
-    width: fit-content;
-    margin: auto;
-}
-
-.scrollButton, .panelContainer {
-    display: inline;
+    width: 100vw;
 }
 
 .panelContainer {
-    width: 80vw;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .panel {

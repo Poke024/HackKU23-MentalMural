@@ -1,61 +1,80 @@
 ﻿<div class="dropdownContainer">
-    <button class="customizeOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Background</button>
-    <button class="customizeOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Weather</button>
-    <button class="customizeOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Sound</button>
-    <button class="customizeOption @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">Time</button>
+    <button class="customizeOption @(IsShown?"slideInTopCustom":(!FirstLoad?"slideOutTopCustom":"hideTopCustom"))"><img src="background.png" alt="Change Background"></button>
+    <button class="customizeOption @(IsShown?"slideInTopCustom":(!FirstLoad?"slideOutTopCustom":"hideTopCustom"))"><img src="weather.png" alt="Change Weather"></button>
+    <button class="customizeOption @(IsShown?"slideInTopCustom":(!FirstLoad?"slideOutTopCustom":"hideTopCustom"))"><img src="sound.png" alt="Change Sound and Music"></button>
+    <button class="customizeOption @(IsShown?"slideInTopCustom":(!FirstLoad?"slideOutTopCustom":"hideTopCustom"))"><img src="time.png" alt="Change Time"></button>
 </div>
 
 <style>
+    .dropdownContainer {
+        margin: 0px 0px 0px 15px;
+    }
     .customizeOption {
         z-index: 1;
         position: relative;
         padding: 5px;
         margin: auto;
         display: inline;
+        width: 50px;
+        height: 50px;
         background-color: #f9f3fe;
-        border-radius: 5px;
+        border-radius: 25px;
+        max-height: 10vh;
         animation: hideTop 1s forwards;
+        visibility: hidden;
     }
 
-    .slideInTop {
-        animation: fromTop @AnimationTime forwards;
+    .customizeOption img {
+        height: 25px;
+        width: 25px;
+    }
+    .slideInTopCustom {
+        animation: fromTopCustom @AnimationTime forwards;
     }
 
-    .slideOutTop {
-        animation: toTop @AnimationTime forwards;
+    .slideOutTopCustom {
+        animation: toTopCustom @AnimationTime forwards;
     }
 
-    @@keyframes toTop {
+    @@keyframes toTopCustom {
         0% {
+            visibility: visible;
             opacity: 1;
         }
 
         100% {
-            transform: translateY(-20vh);
+            visibility: hidden;
+            transform: translateY(-30vh);
             opacity: 0;
         }
     }
 
-    @@keyframes fromTop {
+    @@keyframes fromTopCustom {
         0% {
-            transform: translateY(-10vh);
+            visibility: hidden;
+            transform: translateY(-30vh);
             opacity: 0;
         }
 
-        50% {
+        100% {
+            visibility: visible;
             transform: translateY(0px);
             opacity: 1
         }
     }
 
-    @@keyframes hideTop {
+    @@keyframes hideTopCustom {
         0% {
-            transform: translateY(-20vh);
+            visibility: hidden;
+            display: none;
+            transform: translateY(-30vh);
             opacity: 0;
         }
 
         100% {
-            transform: translateY(-20vh);
+            visibility: hidden;
+            display: none;
+            transform: translateY(-30vh);
             opacity: 0;
         }
     }
