@@ -1,4 +1,7 @@
-﻿<button class="menuButton" @onclick="OnButtonClick">Journal</button>
+﻿@inject HttpClient Http
+@using MentalMural.Shared
+
+<button class="menuButton" @onclick="OnButtonClick">Journal</button>
 <JournalMenuAnime AnimationTime="1.5s" IsShown=@isShown FirstLoad=@firstLoad />
 @code {
     bool firstLoad = true;
@@ -12,21 +15,4 @@
             firstLoad = false;
         }
     }
-
-    private string? inputValue { get; set; }
-
-    private string? ObtainedValue { get; set; }
-
-    private string? entry { get; set; }
-
-    void GetJournal()
-    {
-        entry = "Placeholder";
-    }
-
-    void SaveEntry()
-    {
-        ObtainedValue = inputValue;
-    }
-
 }
