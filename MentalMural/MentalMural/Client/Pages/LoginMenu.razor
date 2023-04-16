@@ -1,0 +1,15 @@
+﻿<button class="menuButton">Login</button>
+<LoginMenuAnime AnimationTime="1.5s" IsShown=@isShown FirstLoad=@firstLoad />
+@code {
+    bool firstLoad = true;
+    bool isShown = false;
+
+    private void OnButtonClick()
+    {
+        isShown = !isShown;
+        if (firstLoad == true)
+        {
+            firstLoad = false;
+        }
+    }
+}
