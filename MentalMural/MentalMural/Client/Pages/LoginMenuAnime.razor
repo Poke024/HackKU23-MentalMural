@@ -1,17 +1,21 @@
-﻿<div class="loginDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
+﻿@inject HttpClient Http
+@inject IJSRuntime JS
+@using MentalMural.Shared
+
+<div class="loginDropdown @(IsShown?"slideInTop":(!FirstLoad?"slideOutTop":"hideTop"))">
     <div class="centerBox">
         <div class="row">
-            <label>Username:</label><input type="text" />
+            <label>Username:</label><input type="text" @bind="usernameInput"/>
         </div>
         <div class="row">
-            <label>Password:</label><input type="password" />
+            <label>Password:</label><input type="password" @bind="passwordInput"/>
         </div>
         <div class="row">
             <div class="half">
-                <button>Sign Up</button>
+                <button @onclick="SignUp">Sign Up</button>
             </div>
             <div class="half">
-                <button>Log in</button>
+                <button @onclick="LogIn">Log in</button>
             </div>
         </div>
         <div class="row">
@@ -110,13 +114,44 @@
     [Parameter] public bool IsShown { get; set; }
     [Parameter] public bool FirstLoad { get; set; }
 
-    private void SignUp()
+    private string? usernameInput;
+    private string? passwordInput;
+    public UserData? userData; 
+
+
+    private async void SignUp()
     {
+        var exists = (await Http.GetFromJsonAsync<List<UserData>>("JournalEntry/GetUserData")).FirstOrDefault(p => p.Username == usernameInput);
+        if (exists != null)
+        {
+            await JS.InvokeAsync<object>("alert", "The username already exists");
+        } else if (usernameInput == null || passwordInput == null)
+        {
+            await JS.InvokeAsync<object>("alert", "Must have a username and password");
+        }
+        {
+            // no account with this username, both values not null
+            int num_users = (await Http.GetFromJsonAsync<List<UserData>>("JournalEntry/GetUserData")).Count;
+            await Http.PostAsJsonAsync<UserData>("JournalEntry/AddUser", new UserData { Id = num_users + 1, Username = usernameInput, Password = passwordInput, Settings = ""});
+        }
 
     }
 
-    private void LogIn()
+    private async void LogIn()
     {
-        
+        var existingAccount = (await Http.GetFromJsonAsync<List<UserData>>("JournalEntry/GetUserData")).FirstOrDefault(p => p.Username == usernameInput);
+        if (existingAccount == null)
+        {
+            // no account with this username exists
+            await JS.InvokeAsync<object>("alert", "No account with this username exists");
+        } else if (existingAccount.Password != passwordInput)
+        {
+            await JS.InvokeAsync<object>("alert", "Incorrect Password");
+            //account exists but password is wrong
+        } else
+        {
+            // everything is good, retirieve the users info
+            userData = existingAccount;
+        }
     }
 }
