@@ -1,0 +1,28 @@
+﻿<button id="customize" @onclick="OnCustomizeClick"><img src="Settings Icon.png" alt="Customization Settings"></button>
+<CustomizeMenu AnimationTime="1.5s" IsShown=@showCustom FirstLoad=@customLoad />
+<button id="journal" @onclick="OnJournalClick"><img src="journal.png" alt="Open Journal Menu"></button>
+<JournalMenu AnimationTime="1.5s" IsShown=@showJournal FirstLoad=@journalLoad />
+@code{
+    bool customLoad = true;
+    bool journalLoad = true;
+    bool showCustom = false;
+    bool showJournal = false;
+
+    private void OnCustomizeClick() 
+    {
+        showCustom = !showCustom;
+        if (customLoad)
+        {
+            customLoad = false;
+        }
+    }
+
+    private void OnJournalClick()
+    {
+        showJournal = !showJournal;
+        if (journalLoad)
+        {
+            journalLoad = false;
+        }
+    }
+}

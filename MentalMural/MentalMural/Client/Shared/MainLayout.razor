@@ -1,6 +1,18 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    @Body
+    <div id="customization" class="sidebar">
+        <ActionPanel OnBackgroundChange=""></ActionPanel>
+    </div>
+    <div class="center">
+        @Body
+    </div>
+    <div id="controls" class="sidebar">
+        <UserPanel></UserPanel>
+    </div>
 </div>
+
+@code {
+    
+}
 

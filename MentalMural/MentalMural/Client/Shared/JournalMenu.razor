@@ -1,7 +1,7 @@
 ﻿@inject HttpClient Http
 @using MentalMural.Shared
 
-<div class="journalDropdown @(IsShown?"slideInTopJournal":(!FirstLoad?"slideOutTopJournal":"hideTopJournal"))">
+<div class="slideInJournal @(IsShown?"slideInLeftJournal":(!FirstLoad?"slideOutLeftJournal":"hideLeftJournal"))">
     <div class="centerBox">
         <div class="half" id="left">
             <div class="centerBox">
@@ -26,7 +26,7 @@
 </div>
 
 <style>
-    .journalDropdown {
+    .slideInJournal {
         margin-top: 10px;
         float: right;
         background-color: white;
@@ -35,7 +35,7 @@
         height: 100%;
         margin-right: 0px;
         border-radius: 10px;
-        animation: hideTop 1s forwards;
+        animation: hideLeft 1s forwards;
         visibility: hidden;
     }
 
@@ -82,15 +82,15 @@
         margin: auto;
     }
 
-    .slideInTopJournal {
-        animation: fromTopJournal @AnimationTime forwards;
+    .slideInLeftJournal {
+        animation: fromLeftJournal @AnimationTime forwards;
     }
 
-    .slideOutTopJournal {
-        animation: toTopJournal @AnimationTime forwards;
+    .slideOutLeftJournal {
+        animation: toLeftJournal @AnimationTime forwards;
     }
 
-    @@keyframes toTopJournal {
+    @@keyframes toLeftJournal {
         0% {
             visibility: visible;
             opacity: 1;
@@ -98,35 +98,35 @@
 
         100% {
             visibility: hidden;
-            transform: translateY(-20vh);
+            transform: translateX(-20vw);
             opacity: 0;
         }
     }
 
-    @@keyframes fromTopJournal {
+    @@keyframes fromLeftJournal {
         0% {
             visibility: hidden;
-            transform: translateY(-10vh);
+            transform: translateX(-10vw);
             opacity: 0;
         }
 
         100% {
             visibility: visible;
-            transform: translateY(0px);
+            transform: translateX(0px);
             opacity: 1
         }
     }
 
-    @@keyframes hideTop {
+    @@keyframes hideLeft {
         0% {
             visibility: hidden;
-            transform: translateY(-20vh);
+            transform: translateX(-20vw);
             opacity: 0;
         }
 
         100% {
             visibility: hidden;
-            transform: translateY(-20vh);
+            transform: translateY(-20vw);
             opacity: 0;
         }
     }

@@ -1,0 +1,25 @@
+﻿<button id="account" @onclick="OnAccountClick"><img src="account.png" alt="Customization Settings"></button>
+<AccountMenu AnimationTime="1.5s" IsShown=@showAccount FirstLoad=@firstLoad/>
+<button id="help" @onclick="OnHelpClick"><img src="help.png" alt="Open Journal Menu"></button>
+<!--<HelpMenu AnimationTime="1.5s" IsShown=@showHelp FirstLoad=@firstLoad />-->
+@code{
+    bool firstLoad = true;
+    bool showAccount = false;
+    bool showHelp = false;
+
+    private void OnAccountClick() 
+    {
+        showAccount = !showAccount;
+        if (firstLoad == true) {
+            firstLoad = false;
+        }
+    }
+
+    private void OnHelpClick()
+    {
+        showHelp = !showHelp;
+        if (firstLoad == true) {
+            firstLoad = false;
+        }
+    }
+}

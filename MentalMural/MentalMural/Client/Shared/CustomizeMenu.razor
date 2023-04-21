@@ -1,0 +1,102 @@
+﻿<div class="customizeRow @(IsShown?"slideInLeftCustom":(FirstLoad?"hideLeftCustom":"slideOutLeftCustom"))">
+    <button id="background" class="customizeOption" @onclick="changeBackground"><img src="background.png" alt="Change Background"></button>
+    <button id="sound" class="customizeOption" @onclick="changeSound"><img src="sound.png" alt="Change Sound and Music"></button>
+    <button id="time" class="customizeOption" @onclick="changeTime"><img src="time.png" alt="Change Time"></button>
+</div>
+
+<style>
+    .customizeRow {
+        z-index: 2;
+        height: 60px;
+        width: 240px;
+        position: absolute;
+        top: 0px;
+        visibility: hidden;
+        margin-left: 60px;
+    }
+
+    .customizeOption {
+        z-index: 2;
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        position: relative;
+    }
+
+    .customizeOption img {
+        z-index: 2;
+        height: 25px;
+        width: 25px;
+    }
+
+    .slideInLeftCustom {
+        animation: fromLeftCustom @AnimationTime forwards;
+    }
+
+    .slideOutLeftCustom {
+        animation: toLeftCustom @AnimationTime forwards;
+    }
+
+    @@keyframes toLeftCustom {
+        0% {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        100% {
+            visibility: hidden;
+            transform: translateX(-10vw);
+            opacity: 0;
+        }
+    }
+
+    @@keyframes fromLeftCustom {
+        0% {
+            visibility: hidden;
+            transform: translateX(-10vw);
+            opacity: 0;
+        }
+
+        100% {
+            visibility: visible;
+            transform: translateX(0px);
+            opacity: 1
+        }
+    }
+
+    @@keyframes hideLeftCustom {
+        0% {
+            visibility: hidden;
+            display: none;
+            opacity: 0;
+        }
+
+        100% {
+            visibility: hidden;
+            display: none;
+            opacity: 0;
+        }
+    }
+</style>
+
+@code {
+    [Parameter] public string? AnimationTime { get; set; }
+    [Parameter] public bool IsShown { get; set; }
+    [Parameter] public bool FirstLoad { get; set; }
+
+    [Parameter] public EventCallback<int> nextBackground { get; set; }
+    private Task changeBackground()
+    {
+        return nextBackground.InvokeAsync();
+    }
+
+    private void changeSound()
+    {
+
+    }
+
+    private void changeTime()
+    {
+        
+    }
+}
