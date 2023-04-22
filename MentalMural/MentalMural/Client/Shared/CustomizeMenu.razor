@@ -1,7 +1,9 @@
-﻿<div class="customizeRow @(IsShown?"slideInLeftCustom":(FirstLoad?"hideLeftCustom":"slideOutLeftCustom"))">
-    <button id="background" class="customizeOption" @onclick="changeBackground"><img src="background.png" alt="Change Background"></button>
-    <button id="sound" class="customizeOption" @onclick="changeSound"><img src="sound.png" alt="Change Sound and Music"></button>
-    <button id="time" class="customizeOption" @onclick="changeTime"><img src="time.png" alt="Change Time"></button>
+﻿<div class="customizeRow @(IsShown?"slideInLeftCustom":(FirstLoad?"":"slideOutLeftCustom"))">
+    <button id="background" class="customizeOption" @onclick="changeBackground">
+        <ShowHide Toggle="@dummyToggle" BgNum="@BackgroundNum" FirstLoad="@firstLoad" ImgSrc="background.png" ImgAlt="Change Background"></ShowHide>
+    </button>
+    <button id="sound" class="customizeOption" @onclick="changeSound"><img class="test" src="sound.png" alt="Change Sound and Music"></button>
+    <button id="time" class="customizeOption" @onclick="changeTime"><img class="test" src="time.png" alt="Change Time"></button>
 </div>
 
 <style>
@@ -9,6 +11,7 @@
         z-index: 2;
         height: 60px;
         width: 240px;
+        margin-top: 5px;
         position: absolute;
         top: 0px;
         visibility: hidden;
@@ -23,10 +26,11 @@
         position: relative;
     }
 
-    .customizeOption img {
+    .test {
         z-index: 2;
         height: 25px;
         width: 25px;
+        display: inline;
     }
 
     .slideInLeftCustom {
@@ -63,31 +67,33 @@
             opacity: 1
         }
     }
-
-    @@keyframes hideLeftCustom {
-        0% {
-            visibility: hidden;
-            display: none;
-            opacity: 0;
-        }
-
-        100% {
-            visibility: hidden;
-            display: none;
-            opacity: 0;
-        }
-    }
 </style>
 
 @code {
     [Parameter] public string? AnimationTime { get; set; }
     [Parameter] public bool IsShown { get; set; }
     [Parameter] public bool FirstLoad { get; set; }
+    public int BackgroundNum = 1;
 
-    [Parameter] public EventCallback<int> nextBackground { get; set; }
-    private Task changeBackground()
+    bool dummyToggle = false;
+    bool firstLoad = true;
+
+    [Parameter] public EventCallback<int> OnBgCallback { get; set; }
+
+    protected async Task changeBackground()
     {
-        return nextBackground.InvokeAsync();
+        dummyToggle = !dummyToggle;
+        BackgroundNum++;
+        if (BackgroundNum > 4)
+        {
+            BackgroundNum = 1;
+        }
+        if (firstLoad)
+        {
+            firstLoad = false;
+        }
+
+        await OnBgCallback.InvokeAsync(BackgroundNum);
     }
 
     private void changeSound()

@@ -1,8 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
+<div class="page @(initial?"default":"dynamic")">
     <div id="customization" class="sidebar">
-        <ActionPanel OnBackgroundChange=""></ActionPanel>
+        <ActionPanel BgPassUp="BackgroundChanged"></ActionPanel>
     </div>
     <div class="center">
         @Body
@@ -12,7 +12,66 @@
     </div>
 </div>
 
+<style>
+    .page {
+        height: 100vh;
+        max-height: 100vh;
+        max-width: 100vw;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .default {
+        background-image: radial-gradient(circle at top right, ghostwhite, #1dd1a1);
+    }
+
+    .dynamic {
+        background-image: radial-gradient(circle at top right, ghostwhite, @bgColor);
+    }
+
+    .sidebar {
+        z-index: 5;
+        width: 60px;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    #customization {
+    }
+
+    #controls {
+    }
+
+    .center {
+        max-height: 100vh;
+        z-index: 0;
+        width: auto;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    body {
+        overflow: hidden;
+    }
+</style>
+
 @code {
-    
+    public string? bgColor = "";
+    public bool initial = true;
+
+    protected void BackgroundChanged(int newBg)
+    {
+        initial = false;
+        if (newBg == 1) {
+            bgColor = "#1dd1a1";
+        } else if (newBg == 2) {
+            bgColor = "#feca57";
+        } else if (newBg == 3) {
+            bgColor = "#f368e0";
+        } else {
+            bgColor = "#8395a7";
+        }
+        Console.WriteLine(bgColor);
+    }
 }
 

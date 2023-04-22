@@ -1,5 +1,5 @@
 ﻿<button id="customize" @onclick="OnCustomizeClick"><img src="Settings Icon.png" alt="Customization Settings"></button>
-<CustomizeMenu AnimationTime="1.5s" IsShown=@showCustom FirstLoad=@customLoad />
+<CustomizeMenu AnimationTime="1.5s" IsShown=@showCustom FirstLoad=@customLoad OnBgCallback="BgBtnClicked"/>
 <button id="journal" @onclick="OnJournalClick"><img src="journal.png" alt="Open Journal Menu"></button>
 <JournalMenu AnimationTime="1.5s" IsShown=@showJournal FirstLoad=@journalLoad />
 @code{
@@ -24,5 +24,12 @@
         {
             journalLoad = false;
         }
+    }
+
+    [Parameter] public EventCallback<int> BgPassUp { get; set; }
+
+    protected async Task BgBtnClicked(int bgNum)
+    {
+        await BgPassUp.InvokeAsync(bgNum);
     }
 }

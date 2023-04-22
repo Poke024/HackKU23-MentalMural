@@ -1,0 +1,89 @@
+﻿<img class="optionImg @(Toggle?"hideShow1":(FirstLoad?"":"hideShow2"))" src="@ImgSrc" alt="@ImgAlt" />
+<p class="optionP @(Toggle?"showHide1":(FirstLoad?"":"showHide2"))">@BgNum</p>
+
+<style>
+    .optionImg {
+        z-index: 2;
+        height: 25px;
+        width: 25px;
+    }
+
+    .optionP {
+        z-index: 2;
+        height: 80%;
+        width: 85%;
+        text-align: center;
+        top: 3px;
+        font-size: 25px;
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .hideShow1 {
+        animation: hideThenShow1 1.5s;
+    }
+
+    .hideShow2 {
+        animation: hideThenShow2 1.5s;
+    }
+
+    .showHide1 {
+        animation: showThenHide1 1.5s forwards;
+    }
+
+    .showHide2 {
+        animation: showThenHide2 1.5s forwards;
+    }
+
+    @@keyframes showThenHide1 {
+        0% {
+            display: inline;
+            visibility: visible;
+        }
+
+        100% {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    @@keyframes showThenHide2 {
+        0% {
+            display: inline;
+            visibility: visible;
+        }
+
+        100% {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    @@keyframes hideThenShow1 {
+        0% {
+            visibility: hidden;
+        }
+
+        100% {
+            visibility: hidden;
+        }
+    }
+
+    @@keyframes hideThenShow2 {
+        0% {
+            visibility: hidden;
+        }
+
+        100% {
+            visibility: hidden;
+        }
+    }
+</style>
+
+@code {
+    [Parameter] public int BgNum { get; set; }
+    [Parameter] public bool Toggle { get; set; }
+    [Parameter] public bool FirstLoad { get; set; }
+    [Parameter] public string? ImgSrc { get; set; }
+    [Parameter] public string? ImgAlt { get; set; }
+}
