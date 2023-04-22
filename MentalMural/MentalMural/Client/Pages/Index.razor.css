@@ -1,10 +1,11 @@
 ﻿
 .muralSection {
     z-index: 0;
-    position: relative;
+    width: 100%;
     height: 75vh;
 }
 
 .panelSection {
     z-index: 1;
+    width: 100%;
 }

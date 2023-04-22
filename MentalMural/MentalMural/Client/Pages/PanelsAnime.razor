@@ -1,7 +1,8 @@
-﻿<div class="panelPopup @(IsShown?"slideInTopPanel":(!FirstLoad?"slideOutTopPanel":"hideTopPanel"))">
+﻿<div class="panelPopup @(IsShown?"slideInBottomPanel":(FirstLoad?"":"slideOutBottomPanel"))">
     <ul>
-        <li>Sample Placeholder</li>
-        <li>More Info Coming Soon!</li>
+        @foreach (var item in Items) {
+            <li>@item</li>
+        }
     </ul>
 </div>
 
@@ -13,11 +14,11 @@
         position: relative;
         width: 18vw;
         height: 24vw;
-        animation: hideBottom 1s forwards;
         bottom: 16vh;
         display: inline-block;
         margin: 5px 5px 5px 5px;
         visibility: hidden;
+        overflow: hidden;
     }
 
     .panelPopup ul {
@@ -30,18 +31,23 @@
         margin: auto;
     }
 
-    .slideInTopPanel {
-        animation: fromTopPanel @AnimationTime forwards;
+    .slideInBottomPanel {
+        animation: fromBottomPanel @AnimationTime forwards;
     }
 
-    .slideOutTopPanel {
-        animation: toTopPanel @AnimationTime forwards;
+    .slideOutBottomPanel {
+        animation: toBottomPanel @AnimationTime forwards;
     }
 
-    @@keyframes toTopPanel {
+    ul {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    @@keyframes toBottomPanel {
         0% {
             visibility: visible;
-            transform: translateY(16vh);
+            transform: translateY(-30vh);
             opacity: 1;
         }
 
@@ -52,7 +58,7 @@
         }
     }
 
-    @@keyframes fromTopPanel {
+    @@keyframes fromBottomPanel {
         0% {
             visibility: hidden;
             transform: translateY(0vh);
@@ -61,38 +67,15 @@
 
         100% {
             visibility: visible;
-            transform: translateY(16vh);
+            transform: translateY(-30vh);
             opacity: 1
-        }
-    }
-
-    @@keyframes hideBottomPanel {
-        0% {
-            visibility: hidden;
-            transform: translateY(100vh);
-            opacity: 0;
-        }
-
-        100% {
-            visibility: hidden;
-            transform: translateY(100vh);
-            opacity: 0;
         }
     }
 </style>
 
 @code {
-    [Parameter] public string AnimationTime { get; set; }
+    [Parameter] public string? AnimationTime { get; set; }
     [Parameter] public bool IsShown { get; set; }
     [Parameter] public bool FirstLoad { get; set; }
-
-    private void SignUp()
-    {
-
-    }
-
-    private void LogIn()
-    {
-        
-    }
+    [Parameter] public string[]? Items { get; set; }
 }

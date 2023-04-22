@@ -2,7 +2,7 @@
 @inject IJSRuntime JS
 @using MentalMural.Shared
 
-<div class="loginDropdown @(IsShown?"slideInTopLogin":(!FirstLoad?"slideOutTopLogin":"hideTopLogin"))">
+<div class="loginSlide @(IsShown?"slideInRightLogin":(FirstLoad?"":"slideOutRightLogin"))">
     <div class="centerBox">
         <div class="row">
             <label>Username:</label><input type="text" @bind="usernameInput"/>
@@ -24,16 +24,17 @@
 </div>
 
 <style>
-    .loginDropdown {
+    .loginSlide {
+        z-index: 2;
         margin-top: 10px;
-        float: right;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        visibility: hidden;
         background-color: white;
-        position: relative;
-        width: 20vw;
+        width: 300px;
         height: auto;
-        margin-right: 0px;
         border-radius: 10px;
-        animation: hideTop 1s forwards;
         visibility: hidden;
     }
     
@@ -67,52 +68,39 @@
     .half button {
     }
 
-    .slideInTopLogin {
-        animation: fromTopLogin @AnimationTime forwards;
+    .slideInRightLogin {
+        animation: fromRightLogin @AnimationTime forwards;
     }
 
-    .slideOutTopLogin {
-        animation: toTopLogin @AnimationTime forwards;
+    .slideOutRightLogin {
+        animation: toRightLogin @AnimationTime forwards;
     }
 
-    @@keyframes toTopLogin {
+    @@keyframes toRightLogin {
         0% {
+            transform: translateX(-65px);
             visibility: visible;
             opacity: 1;
         }
 
         100% {
             visibility: hidden;
-            transform: translateY(-20vh);
+            transform: translateX(5vw);
             opacity: 0;
         }
     }
 
-    @@keyframes fromTopLogin {
+    @@keyframes fromRightLogin {
         0% {
             visibility: hidden;
-            transform: translateY(-10vh);
+            transform: translateX(5vw);
             opacity: 0;
         }
 
         100% {
             visibility: visible;
-            transform: translateY(0px);
+            transform: translateX(-65px);
             opacity: 1
-        }
-    }
-
-    @@keyframes hideTop {
-        0% {
-            visibility: hidden;
-            transform: translateY(-20vh);
-            opacity: 0;
-        }
-
-        100% {
-            visibility: hidden;
-            transform: translateY(-20vh);
-            opacity: 0;
         }
     }
 </style>

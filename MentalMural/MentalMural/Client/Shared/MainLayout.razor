@@ -2,7 +2,7 @@
 
 <div class="page @(initial?"default":"dynamic")">
     <div id="customization" class="sidebar">
-        <ActionPanel BgPassUp="BackgroundChanged"></ActionPanel>
+        <ActionPanel BgPassUp="BackgroundChanged" TimePassUp="TimeChanged"></ActionPanel>
     </div>
     <div class="center">
         @Body
@@ -22,21 +22,22 @@
     }
 
     .default {
-        background-image: radial-gradient(circle at top right, ghostwhite, #1dd1a1);
+        background-image: radial-gradient(circle at top right, ghostWhite, #1dd1a1);
     }
 
     .dynamic {
-        background-image: radial-gradient(circle at top right, ghostwhite, @bgColor);
+        background-image: radial-gradient(circle at top right, @timeColor, @bgColor);
     }
 
     .sidebar {
         z-index: 5;
+        min-width: 60px;
         width: 60px;
         max-height: 100vh;
-        overflow: hidden;
     }
 
     #customization {
+        overflow: hidden;
     }
 
     #controls {
@@ -45,9 +46,8 @@
     .center {
         max-height: 100vh;
         z-index: 0;
-        width: auto;
-        overflow: hidden;
         display: inline-block;
+        width: calc(100% - 120px);
     }
 
     body {
@@ -56,7 +56,8 @@
 </style>
 
 @code {
-    public string? bgColor = "";
+    public string? bgColor = "#1dd1a1";
+    public string? timeColor = "ghostWhite";
     public bool initial = true;
 
     protected void BackgroundChanged(int newBg)
@@ -71,7 +72,17 @@
         } else {
             bgColor = "#8395a7";
         }
-        Console.WriteLine(bgColor);
     }
+
+    protected void TimeChanged(bool day)
+    {
+        initial = false;
+        if (day) {
+            timeColor = "ghostWhite";
+        } else {
+            timeColor = "dimGray";
+        }
+    }
+
 }
 

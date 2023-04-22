@@ -1,11 +1,12 @@
 ﻿.centerBox {
-    width: 100vw;
+    width: fit-content;
+    margin: auto;
 }
 
 .panelContainer {
     width: 100%;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    bottom: 10px;
 }
 
 .panel {

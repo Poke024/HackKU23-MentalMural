@@ -2,8 +2,19 @@
     <button id="background" class="customizeOption" @onclick="changeBackground">
         <ShowHide Toggle="@dummyToggle" BgNum="@BackgroundNum" FirstLoad="@firstLoad" ImgSrc="background.png" ImgAlt="Change Background"></ShowHide>
     </button>
-    <button id="sound" class="customizeOption" @onclick="changeSound"><img class="test" src="sound.png" alt="Change Sound and Music"></button>
-    <button id="time" class="customizeOption" @onclick="changeTime"><img class="test" src="time.png" alt="Change Time"></button>
+    <button id="sound" class="customizeOption" @onclick="changeSound"><img class="icon" src="sound.png" alt="Change Sound and Music"></button>
+    <button id="time" class="customizeOption" @onclick="changeTime"><img class="icon" src="time.png" alt="Change Time"></button>
+    <div class="audioContainer">
+        @if (audio == 2) {
+            <audio autoplay><source src="/OMORI - Poems In The Fog.mp3" /></audio>
+        } else if (audio == 3) {
+            <audio autoplay><source src="/Light Rain Ambient - SoundsForYou.mp3" /></audio>
+        } else if (audio == 4) {
+            <audio autoplay><source src="/Nature - Lesfm.mp3" /></audio>
+        } else {
+
+        }
+    </div>
 </div>
 
 <style>
@@ -11,7 +22,8 @@
         z-index: 2;
         height: 60px;
         width: 240px;
-        margin-top: 5px;
+        margin-top: 10px;
+        padding-left: 5px;
         position: absolute;
         top: 0px;
         visibility: hidden;
@@ -26,7 +38,7 @@
         position: relative;
     }
 
-    .test {
+    .icon {
         z-index: 2;
         height: 25px;
         width: 25px;
@@ -74,11 +86,14 @@
     [Parameter] public bool IsShown { get; set; }
     [Parameter] public bool FirstLoad { get; set; }
     public int BackgroundNum = 1;
+    public bool day = true;
+    public int audio = 1;
 
     bool dummyToggle = false;
     bool firstLoad = true;
 
     [Parameter] public EventCallback<int> OnBgCallback { get; set; }
+    [Parameter] public EventCallback<bool> OnTimeCallback { get; set; }
 
     protected async Task changeBackground()
     {
@@ -98,11 +113,16 @@
 
     private void changeSound()
     {
-
+        if (audio < 4) {
+            audio++;
+        } else {
+            audio = 1;
+        }
     }
 
-    private void changeTime()
+    private async Task changeTime()
     {
-        
+        day = !day;
+        await OnTimeCallback.InvokeAsync(day);
     }
 }

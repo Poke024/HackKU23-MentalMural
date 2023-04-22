@@ -2,13 +2,16 @@
 @using MentalMural.Shared
 
 <div class="slideInJournal @(IsShown?"slideInLeftJournal":(FirstLoad?"":"slideOutLeftJournal"))">
-    <div class="centerBox">
         <div class="half" id="left">
             <div class="centerBox">
                 <div class="changePage">
-                    <button @onclick="PrevEntry">&lt; Prev</button><button class="openJournal" @onclick="GetJournal">Open Journal</button><button @onclick="NextEntry">Next &gt;</button>
+                    <button class="pgBtn" @onclick="PrevEntry">&lt;</button>
+                    <button class="openJournal" @onclick="GetJournal">Open Journal</button>
+                    <button class="pgBtn" @onclick="NextEntry">&gt;</button>
                 </div>
-                <p>@entry</p>
+            </div>
+            <p>@entry</p>
+            <div class="centerBox">
                 <div class="extra">
                     <button id="clearJournal" @onclick="ClearJournal">Clear Journal</button>
                 </div>
@@ -17,69 +20,99 @@
         <div class="half" id="right">
             <div class="centerBox">
                 <h6>New Entry</h6>
+            </div>
+            <div class="entryBox">
                 <textarea class="newEntry" @bind="inputValue" />
-                <label>Mood Rating (1 - Bad, 10 - Good):</label><input type="number" min="1" max="10" @bind="moodRating"/>
+            </div>
+            <div class="centerBox">
+                <label>Mood Rating:</label><input class="moodInput" type="number" min="1" max="10" @bind="moodRating"/>
                 <button @onclick="SaveEntry">Save Entry</button>
             </div>
         </div>
-    </div>
 </div>
 
 <style>
     .slideInJournal {
+        float: left;
         z-index: 2;
         margin-top: 10px;
-        float: right;
+        margin-left: 1vw;
         background-color: white;
-        position: relative;
-        width: 80%;
-        height: 100%;
-        margin-right: 0px;
+        position: absolute;
+        min-width: 425px;
+        width: 40vw;
+        max-width: 900px;
+        min-height: 500px;
+        height: 60vh;
+        border-width: 8px;
+        border-style: solid;
+        border-color: saddlebrown;
         border-radius: 10px;
         visibility: hidden;
+        display: flex;
     }
 
     .centerBox {
         width: fit-content;
-        height: 100%;
         margin: auto;
     }
 
     .half {
-        display: inline;
         width: 50%;
         height: 100%;
     }
 
     #left {
-        float: left;
+        justify-content: center;
+        border-right: 1px;
+        border-right-width: 1px;
+        border-right-style: solid;
+        border-right-color: black;
     }
 
     #left p {
-        height: 80%;
-        width: 80%;
+        margin: 10px auto 10px auto;
+        height: 75%;
+        width: 90%;
+        border-width: 1px;
+        border-color: black;
+        border-style: solid;
+    }
+
+    .changePage {
+        margin-top: 10px;
+    }
+
+    .pgBtn {
+        border-radius: 25px;
     }
 
     .openJournal {
         margin: 0px 5px 0px 5px;
-    }
-    .changePage {
-        margin-top: 10px;
     }
 
     #clearJournal {
         color: red;
     }
 
-    #right {
-        float: right;
+    #right h6{
+        margin-top: 15px;
+    }
+
+    .entryBox {
+        width: 90%;
+        margin: auto;
     }
 
     .newEntry {
-        width: 90%;
-        resize: vertical;
-        max-height: 50vh;
         margin: auto;
+        max-height: 47vh;
+        width: 100%;
+    }
+
+    .moodInput {
+        width: 60px;
+        margin-left: 5px;
     }
 
     .slideInLeftJournal {
@@ -128,7 +161,7 @@
     private int curIndex = 0;
 
     private string? entry { get; set; }
-    private int? moodRating { get; set; }
+    private int? moodRating { get; set; } = 5;
 
     private List<JournalEntryData>? entries;
 
@@ -161,20 +194,17 @@
             len--;
         }
 
+        entry = "No entries to display.";
     }
 
     void NextEntry()
     {
-        curIndex++;
         if (entries.Count != 0)
         {
             if (curIndex < (entries.Count - 1))
             {
+                curIndex++;
                 entry = entries[curIndex].Entry;
-            } else
-            {
-                curIndex = entries.Count;
-                entry = "END";
             }
         } else
         {
@@ -184,17 +214,12 @@
 
     void PrevEntry()
     {
-        curIndex--;
         if (entries.Count != 0)
         {
             if (curIndex > 0)
             {
+                curIndex--;
                 entry = entries[curIndex].Entry;
-            }
-            else
-            {
-                curIndex = -1;
-                entry = "BEGIN";
             }
         }
         else
